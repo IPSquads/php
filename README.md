@@ -1,18 +1,15 @@
-# :package_description
+# PHP Library for IP Address Geolocation, Timezone, Currency :package_description other information.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_name/:package_name.svg?style=flat-square)](https://packagist.org/packages/:vendor_name/:package_name)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/:vendor_name/:package_name/run-tests?label=tests)](https://github.com/:vendor_name/:package_name/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_name/:package_name.svg?style=flat-square)](https://packagist.org/packages/:vendor_name/:package_name)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/ipsquads/php.svg?style=flat-square)](https://packagist.org/packages/ipsquads/php)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/ipsquads/php/run-tests?label=tests)](https://github.com/ipsquads/php/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/ipsquads/php.svg?style=flat-square)](https://packagist.org/packages/ipsquads/php)
 
-**Note:** Run `./configure-skeleton` to get started, or manually replace ```:author_name``` ```:author_username``` ```:author_email``` ```:vendor_name``` ```:package_name``` ```:package_description``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](.github/CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. 
 
 This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
 
 ## Support us
 
-Learn how to create a package like this one, by watching our premium video course:
-
-[![Laravel Package training](https://spatie.be/github/package-training.jpg)](https://laravelpackage.training)
+[![Image](https://github-ads.s3.eu-central-1.amazonaws.com/package-skeleton-php.jpg)](https://spatie.be/github-ad-click/package-skeleton-php)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
@@ -23,14 +20,14 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer:
 
 ```bash
-composer require :vendor_name/:package_name
+composer require ipsquads/php
 ```
 
 ## Usage
 
 ``` php
-$skeleton = new Spatie\Skeleton();
-echo $skeleton->echoPhrase('Hello, Spatie!');
+$skeleton = new Ipsquads\Php();
+echo $skeleton->echoPhrase('Hello, Ipsquads!');
 ```
 
 ## Testing
@@ -53,7 +50,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [Sdklab007](https://github.com/Sdklab007)
 - [All Contributors](../../contributors)
 
 ## License

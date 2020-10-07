@@ -1,36 +1,37 @@
 {
-    "name": ":vendor_name/:package_name",
-    "description": ":package_description",
+    "name": "ipsquads/php",
+    "description": "PHP Library for IP Address Geolocation, Timezone, Currency :package_description other information.",
     "keywords": [
-        ":vendor_name",
-        ":package_name"
+        "ipsquads",
+        "php"
     ],
-    "homepage": "https://github.com/:vendor_name/:package_name",
+    "homepage": "https://github.com/ipsquads/php",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": "https://spatie.be",
+            "name": "Sdklab007",
+            "email": "support@ipsquads.com",
+            "homepage": "https://ipsquads.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.4"
+        "php": "^7.1.3",
+        "guzzlehttp/guzzle": "6.3"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
-        "phpunit/phpunit": "^9.3",
+        "phpunit/phpunit": "^7.5.16",
         "vimeo/psalm": "^3.11"
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src"
+            "Ipsquads\\Php\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "Ipsquads\\Php\\Tests\\": "tests"
         }
     },
     "scripts": {
