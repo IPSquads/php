@@ -1,7 +1,7 @@
-# PHP Library for IP Address Geolocation, Timezone, Currency :package_description other information.
+# PHP Library for IP Address Geolocation, Timezone, Currency & other information.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ipsquads/php.svg?style=flat-square)](https://packagist.org/packages/ipsquads/php)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/ipsquads/php/run-tests?label=tests)](https://github.com/ipsquads/php/actions?query=workflow%3Arun-tests+branch%3Amaster)
+![Tests](https://github.com/IPSquads/php/workflows/Tests/badge.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/ipsquads/php.svg?style=flat-square)](https://packagist.org/packages/ipsquads/php)
 
 

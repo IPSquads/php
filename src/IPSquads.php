@@ -18,7 +18,7 @@ class IPSquads
      * @return array IP response data.
      * @throws IPSquadsException
      */
-    public function getDetails($ip_address) : array
+    public function getDetails($ip_address) : \stdClass
     {
         $response_data = $this->provider->getRequestData((string) $ip_address);
 
@@ -31,7 +31,7 @@ class IPSquads
      * @return array IP response data.
      * @throws IPSquadsException
      */
-    public function getCurrencyDetails($ip_address) : array
+    public function getCurrencyDetails($ip_address) : \stdClass
     {
         $response_data = $this->provider->getRequestData((string) $ip_address, 'currency');
 
@@ -44,7 +44,7 @@ class IPSquads
      * @return array IP response data.
      * @throws IPSquadsException
      */
-    public function getTimezoneDetails($ip_address) : array
+    public function getTimezoneDetails($ip_address) : \stdClass
     {
         $response_data = $this->provider->getRequestData((string) $ip_address, 'timezone');
 
@@ -57,7 +57,7 @@ class IPSquads
      * @return array IP response data.
      * @throws IPSquadsException
      */
-    public function getNetworkDetails($ip_address) : array
+    public function getNetworkDetails($ip_address) : \stdClass
     {
         $response_data = $this->provider->getRequestData((string) $ip_address, 'network');
 

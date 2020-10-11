@@ -22,7 +22,7 @@ class IPSquadsProvider
      * @return array IP response data.
      * @throws IPSquadsException
      */
-    public function getRequestData(string $ip_address, string $req_for = 'ip-details') : array
+    public function getRequestData(string $ip_address, string $req_for = 'ip-details') : \stdClass
     {
         $url = $this->buildUrl($ip_address, $req_for);
 
@@ -45,7 +45,7 @@ class IPSquadsProvider
             ]));
         }
 
-        $raw_details = json_decode($response->getBody(), true);
+        $raw_details = json_decode($response->getBody(), false);
 
         return $raw_details;
     }
