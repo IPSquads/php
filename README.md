@@ -4,16 +4,7 @@
 ![Tests](https://github.com/IPSquads/php/workflows/Tests/badge.svg?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/ipsquads/php.svg?style=flat-square)](https://packagist.org/packages/ipsquads/php)
 
-
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[![Image](https://github-ads.s3.eu-central-1.amazonaws.com/package-skeleton-php.jpg)](https://spatie.be/github-ad-click/package-skeleton-php)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+IPSquads PHP library for IP Address Geolocation, Timezone, Currency & other information.
 
 ## Installation
 
@@ -26,8 +17,9 @@ composer require ipsquads/php
 ## Usage
 
 ``` php
-$skeleton = new Ipsquads\Php();
-echo $skeleton->echoPhrase('Hello, Ipsquads!');
+use Ipsquads\Php\IPSquads;
+$ip_squads = new IPSquads('FREE');
+$ip_data = $ip_squads->getDetails('54.70.143.245');
 ```
 
 ## Testing
