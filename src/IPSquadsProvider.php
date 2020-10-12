@@ -2,9 +2,6 @@
 
 namespace Ipsquads\Php;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
-
 class IPSquadsProvider
 {
     const API_BASE_URL = 'https://api.ipsquads.com';
@@ -27,13 +24,13 @@ class IPSquadsProvider
         $url = $this->buildUrl($ip_address, $req_for);
 
         try {
-            $response = (new Client())->request(
-                'GET',
-                $url,
-                $this->buildHeaders()
-            );
-        } catch (GuzzleException $e) {
-            throw new IPSquadsException($e->getMessage());
+            $curl_conn = curl_init();
+            curl_setopt($curl_conn, CURLOPT_URL, $url);
+            curl_setopt($curl_conn, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl_conn, CURLOPT_HTTPHEADER, $this->buildHeaders());
+            $response = curl_exec($curl_conn);
+            curl_close($curl_conn);
+            return json_decode($response, false);
         } catch (Exception $e) {
             throw new IPSquadsException($e->getMessage());
         }
@@ -80,6 +77,6 @@ class IPSquadsProvider
             $headers['authorization'] = "Bearer {$this->access_token}";
         }
 
-        return ['headers' => $headers];
+        return $headers;
     }
 }

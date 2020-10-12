@@ -18,8 +18,14 @@ class IPSquadsProviderTest extends TestCase
     public function testBuildHeaders()
     {
         $headers = (new IPSquadsProvider)->buildHeaders();
-        $this->assertEquals($headers['headers']['accept'], 'application/json');
-        $this->assertEquals($headers['headers']['user-agent'], 'IPSquadsClient/PHP/1.0');
+        $this->assertEquals($headers['accept'], 'application/json');
+        $this->assertEquals($headers['user-agent'], 'IPSquadsClient/PHP/1.0');
+    }
+
+    public function testGetRequestData()
+    {
+        $headers = (new IPSquadsProvider)->getRequestData('54.70.143.245', 'ip-details');
+        $this->assertEquals("", "");
     }
 
     public function testGetDetails()
