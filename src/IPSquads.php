@@ -9,7 +9,7 @@ class IPSquads
 
     public function __construct($access_token = null, $settings = [])
     {
-        $this->provider = new IPSquadsProvider($access_token, $settings = []);
+        $this->provider = new IPSquadsProvider($access_token, $settings);
     }
 
     /**

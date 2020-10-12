@@ -22,15 +22,36 @@ class IPSquadsProviderTest extends TestCase
         $this->assertEquals($headers['user-agent'], 'IPSquadsClient/PHP/1.0');
     }
 
+    public function testGetRequestDataFromRemoteServer()
+    {
+        $url = (new IPSquadsProvider)->buildUrl('54.70.143.245', 'ip-details');
+        $response = (new IPSquadsProvider)->getRequestDataFromRemoteServer($url);
+        $this->assertEquals($response->ip_address, "54.70.143.245");
+    }
+
     public function testGetRequestData()
     {
-        $headers = (new IPSquadsProvider)->getRequestData('54.70.143.245', 'ip-details');
-        $this->assertEquals("", "");
+        $response = (new IPSquadsProvider)->getRequestData('54.70.143.245', 'ip-details');
+        $this->assertEquals($response->ip_address, "54.70.143.245");
     }
+
 
     public function testGetDetails()
     {
         $ip_squads = new IPSquads('FREE');
+        $ip_data = $ip_squads->getDetails('54.70.143.245');
+        $this->assertNotEmpty($ip_data->currency);
+        $this->assertNotEmpty($ip_data->asn);
+        $this->assertNotEmpty($ip_data->location);
+        $this->assertNotEmpty($ip_data->timezone);
+        $this->assertNotEmpty($ip_data->currency);
+    }
+
+    public function testGetDetailsWithCustomSettings()
+    {
+        $ip_squads = new IPSquads('FREE', [
+            'expires_after' => 600,
+        ]);
         $ip_data = $ip_squads->getDetails('54.70.143.245');
         $this->assertNotEmpty($ip_data->currency);
         $this->assertNotEmpty($ip_data->asn);
