@@ -30,6 +30,7 @@ class IPSquadsProvider
             curl_setopt($curl_conn, CURLOPT_HTTPHEADER, $this->buildHeaders());
             $response = curl_exec($curl_conn);
             curl_close($curl_conn);
+
             return json_decode($response, false);
         } catch (Exception $e) {
             throw new IPSquadsException($e->getMessage());
