@@ -32,7 +32,7 @@ class IPSquadsProvider
      * Get details of IP Address from IP Squads server
      *
      * @param  string $ip_address
-     * @return array IP response data.
+     * @return \stdClass IP response data.
      * @throws IPSquadsException
      */
     public function getRequestDataFromRemoteServer(string $url) : \stdClass
@@ -63,7 +63,7 @@ class IPSquadsProvider
      * Get details of IP Address from Cache or IP Squads Server if not found in cache.
      *
      * @param  string $ip_address
-     * @return array IP response data.
+     * @return \stdClass IP response data.
      * @throws IPSquadsException
      */
     public function getRequestData(string $ip_address, string $req_for = 'ip-details') : \stdClass
@@ -71,7 +71,8 @@ class IPSquadsProvider
         $url = $this->buildUrl($ip_address, $req_for);
         // $cache->delete($ip_address);
         // The callable will only be executed on a cache miss.
-        $value = $this->cache_adapter->get($ip_address, function (ItemInterface $item) use ($url) {
+        $cache_key = $ip_address."-".$req_for;
+        $value = $this->cache_adapter->get($cache_key, function (ItemInterface $item) use ($url) {
             $item->expiresAfter($this->expires_after);
             $ip_data = $this->getRequestDataFromRemoteServer($url);
 
