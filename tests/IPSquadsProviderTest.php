@@ -35,7 +35,6 @@ class IPSquadsProviderTest extends TestCase
         $this->assertEquals($response->ip_address, "54.70.143.245");
     }
 
-
     public function testGetDetails()
     {
         $ip_squads = new IPSquads('FREE');

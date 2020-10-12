@@ -1,6 +1,7 @@
 <?php
 
 namespace Ipsquads\Php;
+
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Contracts\Cache\ItemInterface;
 
@@ -16,13 +17,13 @@ class IPSquadsProvider
         $this->access_token = $access_token;
         $this->cache_adapter = new FilesystemAdapter();
         $this->expires_after = 3600;
-        if(isset($settings['cache_adapter']) && !empty($settings['cache_adapter'])){
+        if (isset($settings['cache_adapter']) && ! empty($settings['cache_adapter'])) {
             $this->cache_adapter = $settings['cache_adapter'];
         }
-        if(isset($settings['access_token']) && !empty($settings['access_token'])){
+        if (isset($settings['access_token']) && ! empty($settings['access_token'])) {
             $this->access_token = $settings['access_token'];
         }
-        if(isset($settings['expires_after']) && !empty($this->expires_after)){
+        if (isset($settings['expires_after']) && ! empty($this->expires_after)) {
             $this->expires_after = $settings['expires_after'];
         }
     }
@@ -34,7 +35,8 @@ class IPSquadsProvider
      * @return array IP response data.
      * @throws IPSquadsException
      */
-    public function getRequestDataFromRemoteServer(string $url) : \stdClass {
+    public function getRequestDataFromRemoteServer(string $url) : \stdClass
+    {
         try {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
@@ -72,8 +74,10 @@ class IPSquadsProvider
         $value = $this->cache_adapter->get($ip_address, function (ItemInterface $item) use ($url) {
             $item->expiresAfter($this->expires_after);
             $ip_data = $this->getRequestDataFromRemoteServer($url);
+
             return $ip_data;
         });
+
         return $value;
     }
     
