@@ -20,9 +20,6 @@ class IPSquadsProvider
         if (isset($settings['cache_adapter']) && ! empty($settings['cache_adapter'])) {
             $this->cache_adapter = $settings['cache_adapter'];
         }
-        if (isset($settings['access_token']) && ! empty($settings['access_token'])) {
-            $this->access_token = $settings['access_token'];
-        }
         if (isset($settings['expires_after']) && ! empty($this->expires_after)) {
             $this->expires_after = $settings['expires_after'];
         }

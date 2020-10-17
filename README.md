@@ -6,7 +6,27 @@
 
 IPSquads PHP library for IP Address Geolocation, Timezone, Currency & other information.
 
+## How companies are using IP Squads API?
+
+IPSquads is helping many companies & organizations for various use-cases:
+
+- Content Localization
+- Analytics
+- Fraud Prevention
+- Targeted online advertising
+- Geographic rights management
+
+## Getting Started
+
+By default, requests are throttled at 20 requests per minute if access key is not passed. You can remove this throttle limit by getting a FREE access key through which you can make 1000  unthrottled requests per day.
+
+If you are a non-profit organization, you may request to increase this limit. You can drop us a mail at support@ipsquads.com.
+
+If you would like to upgrade for more than 1000 requests per day, you may select the plan here: https://ipsquads.com/product/
+
+
 ## Installation
+In-order to get started, 
 
 You can install the package via composer:
 
@@ -19,7 +39,8 @@ composer require ipsquads/php
 To get all the details of an IP Address.
 ``` php
 use Ipsquads\Php\IPSquads;
-$ip_squads = new IPSquads('FREE');
+$access_key = 'FREE';
+$ip_squads = new IPSquads($access_key);
 $ip_data = $ip_squads->getDetails('54.70.143.245');
 ```
 
@@ -63,26 +84,63 @@ $ip_data = $ip_squads->getDetails('54.70.143.245');
 }
 ```
 
-To get only the currency details
+### To get only the currency details
+If you are interested in only currency details, you can use the below method.
+
 ``` php
 use Ipsquads\Php\IPSquads;
-$ip_squads = new IPSquads('FREE');
+$access_key = 'FREE';
+$ip_squads = new IPSquads($access_key);
 $ip_data = $ip_squads->getCurrencyDetails('54.70.143.245');
 ```
 
-To get only the timezone details
+### To get only the timezone details
+If you are interested in only getting the timezone details of a visitor based on the IP Address, you can do that using the below method.
 ``` php
 use Ipsquads\Php\IPSquads;
-$ip_squads = new IPSquads('FREE');
+$access_key = 'FREE';
+$ip_squads = new IPSquads($access_key);
 $ip_data = $ip_squads->getTimezoneDetails('54.70.143.245');
 ```
 
-To get only the network details
+### To get only the network details
+If you are only looking for the network details of an IP Address, you can do using the below method.
 ``` php
 use Ipsquads\Php\IPSquads;
-$ip_squads = new IPSquads('FREE');
+$access_key = 'FREE';
+$ip_squads = new IPSquads($access_key);
 $ip_data = $ip_squads->getNetworkDetails('54.70.143.245');
 ```
+
+## Caching
+By default, any result returned from IPSquads server are cached for quick access & prevent you from using more credits unnecessarily. 
+
+Under the hood, this SDK uses [symfony/cache](https://github.com/symfony/cache) library for caching.
+
+The default TTL of cache is 3600 seconds. If you would like to increase or decrease this limit, you can do so by modifying the way IPSquads is getting initialized.
+
+``` php
+use Ipsquads\Php\IPSquads;
+$access_key = 'FREE';
+$settings = [
+  'expires_after' => '1000'
+];
+$ip_squads = new IPSquads($access_key, $settings);
+```
+
+### Cache adapter
+As a default, FilesystemAdapter cache is used. If you would like to use any other adapter of symfony/cache library, you can do so by passing the instance of a Cache Adapter. To check the available cache adapters, [click here](https://symfony.com/doc/current/components/cache.html#available-cache-adapters).
+
+``` php
+use Ipsquads\Php\IPSquads;
+use Symfony\Component\Cache\Adapter\ApcuAdapter;
+$access_key = 'FREE';
+$settings = [
+  'cache_adapter' => (new ApcuAdapter)
+];
+$ip_squads = new IPSquads($access_key, $settings);
+```
+
 ## Testing
 
 ``` bash
@@ -108,4 +166,4 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The Apache License. Please see [License File](LICENSE.md) for more information.
