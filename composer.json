@@ -1,6 +1,6 @@
 {
     "name": "ipsquads/php",
-    "description": "PHP Library for IP Address Geolocation, Timezone, Currency :package_description other information.",
+    "description": "IPSquads official PHP library for IP Address Geolocation, Timezone, Currency, Network & other information.",
     "keywords": [
         "ipsquads",
         "php"
